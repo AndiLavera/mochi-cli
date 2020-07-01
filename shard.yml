@@ -1,0 +1,28 @@
+name: mochi-cli
+version: 0.1.0
+
+authors:
+  - andrewc910 <awcrotwell@gmail.com>
+
+dependencies:
+  cli:
+    github: drujensen/cli
+    version: ~> 0.9.1
+
+  teeplate:
+    github: mosop/teeplate
+    version: ~> 0.10.1
+
+  inflector:
+    github: phoffer/inflector.cr
+    version: "~> 0.1.8"
+
+# description: |
+#   Short description of mochi-cli
+
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
+
+license: MIT
+crystal: 0.35.1

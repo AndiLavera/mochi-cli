@@ -1,0 +1,30 @@
+version: 2.0
+shards:
+  callback:
+    git: https://github.com/amberframework/callback.git
+    version: 0.7.1
+
+  cli:
+    git: https://github.com/drujensen/cli.git
+    version: 0.9.3
+
+  future:
+    git: https://github.com/crystal-community/future.cr.git
+    version: 0.1.0
+
+  inflector:
+    git: https://github.com/phoffer/inflector.cr.git
+    version: 0.1.8
+
+  optarg:
+    git: https://github.com/amberframework/optarg.git
+    version: 0.8.0
+
+  string_inflection:
+    git: https://github.com/mosop/string_inflection.git
+    version: 0.2.1
+
+  teeplate:
+    git: https://github.com/mosop/teeplate.git
+    version: 0.10.1
+
