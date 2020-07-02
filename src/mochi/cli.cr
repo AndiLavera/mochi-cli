@@ -1,5 +1,4 @@
 require "cli"
-require "yaml"
 require "./version"
 require "./cli/commands"
 
