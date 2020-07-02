@@ -11,8 +11,8 @@ class <%= class_name %> < Granite::Base
     # :invitable
   )
 
-  connection <%= config.database %>
-  <%= "table #{table_name}" %>
+  connection YOUR_DATABASE
+  <%= "table users" %>
 
   column id : Int64, primary: true
   column email : String = ""

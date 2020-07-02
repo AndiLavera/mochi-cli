@@ -14,7 +14,6 @@ module Mochi::CLI
       class Options
         arg "type", desc: "authenticable, omniauthable, etc", required: true
         arg "orm", desc: "select orm (jennifer, granite)", required: true
-        arg_array "fields", desc: "DO NOT USE. Not Availble, will be removed"
         bool "--no-color", desc: "disable colored output", default: false
         bool ["-y", "--assume-yes"], desc: "Assume yes to disable interactive mode", default: false
         help
@@ -28,12 +27,8 @@ module Mochi::CLI
       def run
         ensure_orm_argument!
         full_orm_name = modify_orm_name
-        generator = Generators.new("user", ".", args.fields, full_orm_name)
+        generator = Generators.new("user", ".", full_orm_name)
         generator.generate(args.type, options)
-      end
-
-      def recipe
-        CLI.config.recipe
       end
 
       private def ensure_orm_argument!
@@ -53,7 +48,7 @@ module Mochi::CLI
       end
 
       class Help
-        caption "generate Amber classes"
+        caption "generate mochi files"
       end
     end
   end

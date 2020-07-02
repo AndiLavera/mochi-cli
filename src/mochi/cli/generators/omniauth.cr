@@ -1,16 +1,12 @@
 require "./generator"
-require "./field"
 
 module Mochi::CLI
   class Omniauthable < Generator
     command :omniauthable
     directory "#{__DIR__}/../templates/omniauthable"
 
-    property fields : Array(Field)
-
-    def initialize(name, fields, orm : String)
-      super(name, nil)
-      @fields = all_fields(fields)
+    def initialize(name : String, orm : String)
+      super(name)
       @orm = orm
       @migration_extension = @orm == "granite" ? "sql" : "cr"
     end
@@ -31,6 +27,7 @@ module Mochi::CLI
     end
 
     private def inject_require_omniauth
+      # TODO: Is this neccessary?
       filename = "./config/initializers/mochi.cr"
       initializer = File.read(filename)
       append_text = ""
@@ -68,17 +65,6 @@ module Mochi::CLI
       end
       require "mochi/omniauth/handler"
       OMNIAUTH
-    end
-
-    private def all_fields(fields)
-      fields.map { |field| Field.new(field, database: config.database) } +
-        auth_fields
-    end
-
-    private def auth_fields
-      %w(email:string hashed_password:password).map do |f|
-        Field.new(f, hidden: false, database: config.database)
-      end
     end
   end
 end

@@ -10,7 +10,6 @@ module Mochi::CLI
   class Generators
     getter name : String
     getter directory : String
-    getter fields : Array(String)
     getter orm : String
 
     # Keywords from https://github.com/crystal-lang/crystal/wiki/Crystal-for-Rubyists#available-keywords as of May 6th, 2019
@@ -212,7 +211,7 @@ module Mochi::CLI
       "zlib",
     }
 
-    def initialize(name : String, directory : String, fields = [] of String, orm : String = "jennifer")
+    def initialize(name : String, directory : String, orm : String = "jennifer")
       if name.match(/\A[a-zA-Z]/)
         if KEYWORDS.includes?(name.downcase)
           puts "It looks like you may be using a crystal language keyword as a name. This may have unintentional effects."
@@ -229,22 +228,16 @@ module Mochi::CLI
       end
 
       @orm = orm
-
-      @fields = fields
     end
 
     def generate(command : String, options)
       if gen_class = Mochi::CLI::Generator.registered_commands[command]?
         info "Generating #{gen_class}"
-        gen_class.new(name, fields, orm).render(directory, list: true, interactive: !options.assume_yes?, color: options.no_color?)
+        gen_class.new(name, orm).render(directory, list: true, interactive: !options.assume_yes?, color: options.no_color?)
       else
         log = Logger.new(STDOUT)
         log.info("Generator for #{command} not found")
       end
-    end
-
-    def model
-      CLI.config.model
     end
 
     def info(msg)
