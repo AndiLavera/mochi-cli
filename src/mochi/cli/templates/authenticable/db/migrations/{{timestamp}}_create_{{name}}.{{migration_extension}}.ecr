@@ -1,5 +1,16 @@
 <% if @orm == "granite" -%>
-# TODO
+-- +micrate Up
+CREATE TABLE users (
+  id INTEGER NOT NULL PRIMARY KEY,
+  email VARCHAR,
+  password_digest VARCHAR,
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP
+);
+
+
+-- +micrate Down
+DROP TABLE IF EXISTS users;
 <% end -%>
 <% if @orm == "jennifer" -%>
 class Create<% class_name %> < Jennifer::Migration::Base

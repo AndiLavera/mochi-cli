@@ -1,16 +1,10 @@
-class InvitableController < Mochi::Controllers::Invitable::InvitableController
+class InvitableController < Mochi::Controllers::InvitableController
   def new
     super
   end
 
   def edit
-<% if @orm == "granite" -%>
-    user = User.find_by(invitation_token: params[:invite_token])
-<% end -%>
-<% if @orm == "jennifer" -%>
-    user = User.where { _invitation_token == params[:invite_token] }.first
-<% end -%>
-    super(user)
+    super
   end
 
   def create
@@ -18,12 +12,6 @@ class InvitableController < Mochi::Controllers::Invitable::InvitableController
   end
 
   def update
-<% if @orm == "granite" -%>
-    user = User.find_by(email: params["email"].to_s)
-<% end -%>
-<% if @orm == "jennifer" -%>
-    user = User.where { _email == params["email"].to_s }.first
-<% end -%>
-    super(user)
+    super
   end
 end

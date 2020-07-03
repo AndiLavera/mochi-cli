@@ -14,7 +14,7 @@ class <%= class_name %> < Granite::Base
   connection YOUR_DATABASE
   <%= "table users" %>
 
-  column id : Int64, primary: true
+  column id : Int32, primary: true
   column email : String = ""
   column password_digest : String?
   property password : String?
@@ -50,7 +50,7 @@ class <%= class_name %> < Granite::Base
   # column invitation_accepted_at : Time?
   # column invitation_created_at : Time?
   # column invitation_token : String?
-  # column invited_by : Int64?
+  # column invited_by : Int32?
   # column invitation_sent_at : Time?
   timestamps
 end
@@ -70,7 +70,7 @@ class <%= class_name %> < Jennifer::Model::Base
 
   with_timestamps
   mapping(
-    id: { type: Int64, primary: true },
+    id: { type: Int32, primary: true },
     created_at: { type: Time, null: true },
     updated_at: { type: Time, null: true },
     email: { type: String, default: ""},
@@ -108,7 +108,7 @@ class <%= class_name %> < Jennifer::Model::Base
     # invitation_accepted_at: { type: Time? },
     # invitation_created_at: { type: Time? },
     # invitation_token: { type: String? },
-    # invited_by: { type: Int64? },
+    # invited_by: { type: Int32? },
     # invitation_sent_at: { type: Time? },
   )
 end

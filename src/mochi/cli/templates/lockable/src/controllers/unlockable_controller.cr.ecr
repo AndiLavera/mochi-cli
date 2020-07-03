@@ -1,15 +1,5 @@
-class UnlockableController < Mochi::Controllers::Lockable::UnlockController
+class UnlockableController < Mochi::Controllers::UnlockController
   def update
-    user = query_user
-    super(user)
-  end
-
-  def query_user
-<% if @orm == "granite" -%>
-  User.find_by(unlock_token: params[:unlock_token])
-<% end -%>
-<% if @orm == "jennifer" -%>
-    User.where { _unlock_token == params[:unlock_token] }.first
-<% end -%>
+    super
   end
 end
