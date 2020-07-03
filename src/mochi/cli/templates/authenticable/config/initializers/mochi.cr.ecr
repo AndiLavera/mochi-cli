@@ -1,4 +1,6 @@
 require "mochi"
+
+
 # Uncomment this is you plan to use a custom mailing class
 #
 # Make sure to comment out `require "mailers/**"` in the amber mailer initializer
@@ -26,8 +28,15 @@ Mochi.setup do |config|
 
   # Configure which class recieves the call to all emails
   # Default is `Mochi::DefaultMailer`
-  # If you change this, make sure to implment all abstract methods
-  # & make sure to comment out the require mailer at the top of this file
+  # If you change this, make sure to inherit from `Mochi::Mailer`
+  #
+  # HOW TO CHANGE MAILER
+  #
+  # Step 1: add `require "../../src/mailers/**"` on line 2 of this file
+  #
+  # Step 2: remove the `require "../../src/mailers/**"` at the bottom of "config/initializers/mailer.cr"
+  #
+  # Step 3: Change the setting below to the point at your new mailer
   config.mailer_class = Mochi::DefaultMailer
 
   # How many days a password_reset_token lasts
@@ -40,8 +49,7 @@ Mochi.setup do |config|
   config.sign_in_after_reset_password = true
 end
 
-# Uncomment the first line below along with
-# any providers you wish to use.
+# Uncomment the first line below along with any providers you wish to use.
 # require "mochi/omniauth"
 # Mochi::Omniauthable.setup do |config|
 #   # config.google_id = ENV["google_id"]
