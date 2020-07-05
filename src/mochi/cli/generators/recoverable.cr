@@ -20,8 +20,9 @@ module Mochi::CLI
     private def add_routes
       add_routes :web, <<-ROUTES
         get "/reset/password", PasswordController, :new
+        get "/reset/password/edit", PasswordController, :edit
         post "/reset/password", PasswordController, :create
-        get "/confirm/reset/password", PasswordController, :update
+        patch "/reset/password/:id", PasswordController, :update
       ROUTES
     end
   end
