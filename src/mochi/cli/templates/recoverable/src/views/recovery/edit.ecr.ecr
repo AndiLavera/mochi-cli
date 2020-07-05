@@ -8,10 +8,10 @@
   </ul>
 <%="<"%>%- end %>
 
-<form action="/reset/password/<%= user.id %>" method="post">
-  <%= csrf_tag %>
+<form action="/reset/password/<%='<'%>%= user.id %>" method="post">
+  <%="<"%>%= csrf_tag %>
   <input type="hidden" name="_method" value="PATCH">
-  <input name="reset_token" value="<%= reset_token %>" type="hidden"/>
+  <input name="reset_token" value="<%='<'%>%= reset_token %>" type="hidden"/>
   <div class="form-group">
     <input class="form-control" type="password" name="new_password" placeholder="Password"/>
   </div>
