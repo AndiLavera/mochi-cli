@@ -1,26 +1,13 @@
-class SessionController < Mochi::Controllers::Authenticable::SessionController
+class SessionController < Mochi::Controllers::SessionController
   def new
     super
   end
 
   def create
-<% if @orm == "granite" -%>
-    user = User.find_by(email: params["email"].to_s)
-<% end -%>
-<% if @orm == "jennifer" -%>
-    user = User.where { _email == params["email"].to_s }.first
-<% end -%>
-    super(user)
+    super
   end
 
   def destroy
     super
-  end
-
-  private def user_params
-    params.validation do
-      required :email
-      required :password
-    end
   end
 end
