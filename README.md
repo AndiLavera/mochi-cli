@@ -26,6 +26,8 @@ Jennifer:
   mochi generate module_name jennifer
   ```
 
+Module Names: authenticable, confirmable, trackable, recoverable, omniauthable, invitable, lockable
+
 ## Bug Reports
 
 This cli handles a sizeable amount of files & templates. If you notice a typo causing an error in a file that was generated, please open an issue or PR. 
