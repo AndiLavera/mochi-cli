@@ -7,9 +7,9 @@ Each module of mochi requires a migration, several views, controllers, etc. This
 ## Installation
 
 ```
-  git clone https://github.com/andrewc910/mochi-cli
-  cd mochi-cli
-  make && sudo make install
+git clone https://github.com/andrewc910/mochi-cli
+cd mochi-cli
+make && sudo make install
 ```
 
 ## Usage
@@ -17,13 +17,13 @@ Each module of mochi requires a migration, several views, controllers, etc. This
 Granite:
 
   ```
-    mochi generate module_name
+  mochi generate module_name
   ```
 
 Jennifer: 
 
   ```
-    mochi generate module_name jennifer
+  mochi generate module_name jennifer
   ```
 
 ## Bug Reports
