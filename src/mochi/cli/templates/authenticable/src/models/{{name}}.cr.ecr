@@ -17,7 +17,6 @@ class <%= class_name %> < Granite::Base
   column id : Int32, primary: true
   column email : String = ""
   column password_digest : String?
-  property password : String?
 
   # Uncomment these for the Confirmable
   # column confirmation_token : String
