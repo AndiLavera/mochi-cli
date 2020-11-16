@@ -1,6 +1,6 @@
 # Mochi-CLI
 
-**Deprecated in favor of Amber's plugin system**
+> **Deprecated in favor of Amber's plugin system**
 
 Mochi-cli makes installation easy. This shard is not meant to go into your project repo. Clone, compile, run the command you need & delete.
 
