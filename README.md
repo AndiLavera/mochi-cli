@@ -1,5 +1,7 @@
 # Mochi-CLI
 
+**Deprecated in favor of Amber's plugin system**
+
 Mochi-cli makes installation easy. This shard is not meant to go into your project repo. Clone, compile, run the command you need & delete.
 
 Each module of mochi requires a migration, several views, controllers, etc. This cli will generate the files you need depending on the ORM you are using. 
